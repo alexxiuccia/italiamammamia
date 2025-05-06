@@ -1,0 +1,57 @@
+[
+  {
+    "question": "Dopo il fallimento del progetto, l’atmosfera in ufficio era piuttosto ___",
+    "options": [
+      "tranquilla",
+      "tesa",
+      "calma",
+      "rilassata"
+    ],
+    "answer": "tesa",
+    "explanation": "“Tesa” descrive un ambiente carico di tensione, perfetto dopo un fallimento."
+  },
+  {
+    "question": "Il professore ha ___ l’importanza di studiare con metodo.",
+    "options": [
+      "negato",
+      "suggerito",
+      "sottolineato",
+      "rifiutato"
+    ],
+    "answer": "sottolineato",
+    "explanation": "“Sottolineare” significa evidenziare un concetto importante."
+  },
+  {
+    "question": "L’autore usa un linguaggio molto ___ per esprimere concetti complessi.",
+    "options": [
+      "povero",
+      "tecnico",
+      "vago",
+      "preciso"
+    ],
+    "answer": "preciso",
+    "explanation": "Un linguaggio “preciso” è chiaro e ben definito."
+  },
+  {
+    "question": "Durante il colloquio, ha dimostrato grande ___ nel rispondere alle domande.",
+    "options": [
+      "incertezza",
+      "confusione",
+      "padronanza",
+      "esitazione"
+    ],
+    "answer": "padronanza",
+    "explanation": "“Padronanza” significa sicurezza e competenza."
+  },
+  {
+    "question": "Il documentario ha suscitato un profondo senso di ___ nel pubblico.",
+    "options": [
+      "indifferenza",
+      "noia",
+      "commozione",
+      "distrazione"
+    ],
+    "answer": "commozione",
+    "explanation": "“Commozione” è l’emozione intensa, spesso legata a qualcosa di toccante."
+  }
+]
