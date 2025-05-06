@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Gioco Lessicale – Livello 1</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f2f2f2; }
+    .quiz-container { background: white; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto; box-shadow: 0 0 10px #aaa; }
+    h2 { color: #333; }
+    button { margin: 10px 0; padding: 10px; width: 100%; font-size: 16px; }
+    .correct { background-color: #c8e6c9; }
+    .wrong { background-color: #ffcdd2; }
+    .explanation { margin-top: 10px; font-style: italic; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h2 id="question">Domanda...</h2>
+    <div id="answers"></div>
+    <div id="explanation" class="explanation"></div>
+    <button onclick="nextQuestion()">Prossima</button>
+    <p id="score"></p>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "Dopo il fallimento del progetto, l’atmosfera in ufficio era piuttosto ___",
+        options: ["tranquilla", "tesa", "calma", "rilassata"],
+        answer: "tesa",
+        explanation: "“Tesa” descrive un ambiente carico di tensione, perfetto dopo un fallimento."
+      },
+      {
+        question: "Il professore ha ___ l’importanza di studiare con metodo.",
+        options: ["negato", "suggerito", "sottolineato", "rifiutato"],
+        answer: "sottolineato",
+        explanation: "“Sottolineare” significa evidenziare un concetto importante."
+      },
+      {
+        question: "L’autore usa un linguaggio molto ___ per esprimere concetti complessi.",
+        options: ["povero", "tecnico", "vago", "preciso"],
+        answer: "preciso",
+        explanation: "Un linguaggio “preciso” è chiaro e ben definito."
+      },
+      {
+        question: "Durante il colloquio, ha dimostrato grande ___ nel rispondere alle domande.",
+        options: ["incertezza", "confusione", "padronanza", "esitazione"],
+        answer: "padronanza",
+        explanation: "“Padronanza” significa sicurezza e competenza."
+      },
+      {
+        question: "Il documentario ha suscitato un profondo senso di ___ nel pubblico.",
+        options: ["indifferenza", "noia", "commozione", "distrazione"],
+        answer: "commozione",
+        explanation: "“Commozione” è l’emozione intensa, spesso legata a qualcosa di toccante."
+      }
+    ];
+
+    let current = 0;
+    let score = 0;
+
+    function showQuestion() {
+      document.getElementById("explanation").innerHTML = "";
+      const q = questions[current];
+      document.getElementById("question").innerText = q.question;
+      const answersDiv = document.getElementById("answers");
+      answersDiv.innerHTML = "";
+
+      q.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.onclick = () => checkAnswer(btn, option);
+        answersDiv.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(button, selected) {
+      const q = questions[current];
+      const buttons = document.querySelectorAll("button");
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (selected === q.answer) {
+        button.classList.add("correct");
+        score++;
+      } else {
+        button.classList.add("wrong");
+        buttons.forEach(btn => {
+          if (btn.textContent === q.answer) btn.classList.add("correct");
+        });
+      }
+
+      document.getElementById("explanation").innerText = q.explanation;
+    }
+
+    function nextQuestion() {
+      current++;
+      if (current < questions.length) {
+        showQuestion();
+      } else {
+        document.getElementById("question").innerText = "Fine del gioco!";
+        document.getElementById("answers").innerHTML = "";
+        document.getElementById("explanation").innerText = "";
+        document.getElementById("score").innerText = `Hai totalizzato ${score} su ${questions.length} punti.`;
+      }
+    }
+
+    // Start the game
+    showQuestion();
+  </script>
+</body>
+</html>
